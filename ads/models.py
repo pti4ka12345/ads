@@ -10,4 +10,5 @@ class Ad(models.Model):
 	author = models.CharField(max_length=1000)
 	price = models.PositiveIntegerField()
 	description = models.CharField(max_length=1000, null=True)
+	address = models.CharField(max_length=1000, null=True)
 	is_published = models.BooleanField(default=False)

@@ -72,6 +72,7 @@ class AdView(View):
             author=ad_data["author"],
             price=ad_data["price"],
             description=ad_data["description"],
+            address=ad_data["address"],
             is_published=ad_data["is_published"],
         )
 
@@ -81,6 +82,7 @@ class AdView(View):
             "author": ad.author,
             "price": ad.price,
             "description": ad.description,
+            "address": ad.address,
             "is_published": ad.is_published,
         }, safe=False)
 
@@ -97,6 +99,7 @@ class AdDetailView(DetailView):
             "author": ad.author,
             "price": ad.price,
             "description": ad.description,
+            "address": ad.address,
             "is_published": ad.is_published,
         },  safe=False)
 
