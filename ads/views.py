@@ -45,8 +45,8 @@ class CategoryDetailView(DetailView):
         return JsonResponse({
             "id": category.id,
             "name": category.name,
-        })
-        return JsonResponse(response, safe=False)
+        },  safe=False)
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class AdView(View):
@@ -98,5 +98,5 @@ class AdDetailView(DetailView):
             "price": ad.price,
             "description": ad.description,
             "is_published": ad.is_published,
-        })
-        return JsonResponse(response, safe=False)
+        },  safe=False)
+
