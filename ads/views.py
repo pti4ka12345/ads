@@ -12,7 +12,7 @@ from ads.models import Ad, Category
 @method_decorator(csrf_exempt, name='dispatch')
 class CategoryView(View):
     def get(self, request):
-        categories = Category.object.all()
+        categories = Category.objects.all()
 
         response = []
 
@@ -51,7 +51,7 @@ class CategoryDetailView(DetailView):
 @method_decorator(csrf_exempt, name='dispatch')
 class AdView(View):
     def get(self, request):
-        ads = Ad.object.all()
+        ads = Ad.objects.all()
 
         response = []
 
