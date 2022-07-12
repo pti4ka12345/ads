@@ -9,6 +9,10 @@ from django.views.generic import DetailView
 from ads.models import Ad, Category
 
 
+def index(request):
+    return JsonResponse({"status": "ok"}, status=200)
+
+
 @method_decorator(csrf_exempt, name='dispatch')
 class CategoryView(View):
     def get(self, request):
