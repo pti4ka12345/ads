@@ -77,9 +77,9 @@ class UserCreateView(CreateView):
             age=user_data["age"],
         )
 
-        for location_name in user_data["location"]:
-            location = location.objects.get_or_create(name=location_name)
-            user.locations.add(location)
+        for location_name in user_data["locations"]:
+            location_ = location_name.objects.get_or_create(name=location_name)
+            self.object.locations.add(location_)
 
         return JsonResponse({
             "id": user.id,
@@ -108,8 +108,8 @@ class UserUpdateView(UpdateView):
         self.object.age = user_data["age"]
 
         for location_name in user_data["locations"]:
-            location = location.objects.get_or_create(name=location_name)
-            self.object.locations.add(location)
+            location_ = location_name.objects.get_or_create(name=location_name)
+            self.object.locations.add(location_)
 
         self.object.save()
 
