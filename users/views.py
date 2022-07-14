@@ -3,7 +3,6 @@ import json
 from django.core.paginator import Paginator
 from django.db.models import Count
 from django.http import JsonResponse
-from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -78,8 +77,8 @@ class UserCreateView(CreateView):
         )
 
         for location_name in user_data["locations"]:
-            location_ = location_name.objects.get_or_create(name=location_name)
-            self.object.locations.add(location_)
+            location, _ = location.objects.get_or_create(name=location_name)
+            self.object.locations.add(location)
 
         return JsonResponse({
             "id": user.id,
@@ -108,8 +107,8 @@ class UserUpdateView(UpdateView):
         self.object.age = user_data["age"]
 
         for location_name in user_data["locations"]:
-            location_ = location_name.objects.get_or_create(name=location_name)
-            self.object.locations.add(location_)
+            location, _ = location.objects.get_or_create(name=location_name)
+            self.object.locations.add(location)
 
         self.object.save()
 

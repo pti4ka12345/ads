@@ -98,6 +98,10 @@ class AdView(ListView):
     models = Ad
     queryset = Ad.objects.all()
 
+    def __init__(self, **kwargs):
+        super().__init__(kwargs)
+        self.object_list = None
+
     def get(self, request, *args, **kwargs):
         super().get(request, *args, **kwargs)
 
@@ -112,7 +116,7 @@ class AdView(ListView):
                 "id": ad.id,
                 "name": ad.name,
                 "author_id": ad.author_id,
-                "author": ad.author,
+                "author": ad.author.first_name,
                 "price": ad.price,
                 "description": ad.description,
                 "is_published": ad.is_published,
@@ -139,7 +143,7 @@ class AdDetailView(DetailView):
             "id": ad.id,
             "name": ad.name,
             "author_id": ad.author_id,
-            "author": ad.author,
+            "author": ad.author.first_name,
             "price": ad.price,
             "description": ad.description,
             "is_published": ad.is_published,
@@ -171,7 +175,7 @@ class AdCreateView(CreateView):
             "id": ad.id,
             "name": ad.name,
             "author_id": ad.author_id,
-            "author": ad.author,
+            "author": ad.author.first_name,
             "price": ad.price,
             "description": ad.description,
             "is_published": ad.is_published,
@@ -201,7 +205,7 @@ class AdUpdateView(UpdateView):
             "id": self.object.id,
             "name": self.object.name,
             "author_id": self.object.author_id,
-            "author": self.object.author,
+            "author": self.object.author.first_name,
             "price": self.object.price,
             "description": self.object.description,
             "is_published": self.object.is_published,
@@ -234,7 +238,7 @@ class AdUploadImageView(UpdateView):
             "id": self.object.id,
             "name": self.object.name,
             "author_id": self.object.author_id,
-            "author": self.object.author,
+            "author": self.object.author.first_name,
             "price": self.object.price,
             "description": self.object.description,
             "is_published": self.object.is_published,
