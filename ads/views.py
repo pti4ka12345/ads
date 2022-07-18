@@ -98,10 +98,6 @@ class AdView(ListView):
     models = Ad
     queryset = Ad.objects.all()
 
-    def __init__(self, **kwargs):
-        super().__init__(kwargs)
-        self.object_list = None
-
     def get(self, request, *args, **kwargs):
         super().get(request, *args, **kwargs)
 
