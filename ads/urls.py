@@ -3,8 +3,10 @@ from django.urls import path, include
 
 from ads import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api_auth/', include('rest_framework.urls')),
     path('index/', views.index),
     path('cat/', views.CategoryView.as_view()),
     path('cat/<int:pk>/', views.CategoryDetailView.as_view()),
@@ -19,3 +21,5 @@ urlpatterns = [
     path('ad/<int:pk>/upload_image/', views.AdUploadImageView.as_view()),
     path('user/', include("users.urls")),
 ]
+
+
