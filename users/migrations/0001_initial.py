@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('first_name', models.CharField(max_length=50)),
                 ('last_name', models.CharField(max_length=50)),
-                ('user_name', models.CharField(max_length=50)),
+                ('username', models.CharField(max_length=50)),
                 ('password', models.CharField(max_length=50)),
                 ('role', models.CharField(choices=[('member', 'Пользователь'), ('moderator', 'Модератор'), ('admin', 'Админ')], default='member', max_length=50)),
                 ('age', models.PositiveIntegerField()),
