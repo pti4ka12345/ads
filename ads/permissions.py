@@ -1,7 +1,7 @@
 from django.http import Http404
 from rest_framework import permissions
 
-from ads.models import Ad
+from ads.models import Ad, Selection
 from users.models import User
 
 

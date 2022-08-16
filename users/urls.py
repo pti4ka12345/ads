@@ -10,7 +10,7 @@ router.register(r'location', LokationViewSet)
 
 urlpatterns = [
     path('user/', views.UserListView.as_view()),
-    path('user/<int:pk>', views.UserDetailView.as_view()),
+    path('user/<int:pk>/', views.UserDetailView.as_view()),
     path('user/create/', views.UserCreateView.as_view()),
     path('user/<int:pk>/update/', views.UserUpdateView.as_view()),
     path('user/<int:pk>/delete/', views.UserDeleteView.as_view()),
