@@ -45,7 +45,7 @@ class User(AbstractUser):
     age = models.PositiveIntegerField(null=True)
     locations = models.ManyToManyField(Location)
     birth_date = models.DateField(validators=[check_birth_date], null=True)
-    email = models.EmailField(unique=True, null=True)
+    email = models.EmailField(unique=True, null=True, blank=True)
 
     class Meta:
         verbose_name = "Пользователь"

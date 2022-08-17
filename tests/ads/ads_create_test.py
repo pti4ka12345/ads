@@ -22,6 +22,7 @@ def test_ads_create(client, user, category):
         'category': category.id,
         'description': 'test description',
         'image': None,
+        'is_published': False,
         'name': 'new test ad',
         'price': 10
     }
