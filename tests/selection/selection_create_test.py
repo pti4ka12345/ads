@@ -14,9 +14,4 @@ def test_selection_create(client, user_token, user, ad):
         HTTP_AUTHORIZATION=f"Bearer {user_token}")
 
     assert response.status_code == 201
-    assert response.data == {
-        'id': 1,
-        'name': 'new test selection',
-        'owner': user.id,
-        'items': [ad.id]
-    }
+    assert response.data == {'id': 1, 'name': 'new test selection', 'owner': user.id, 'items': [ad.id]}

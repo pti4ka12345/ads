@@ -25,18 +25,18 @@ class SelectionListView(ListAPIView):
     serializer_class = SelectionListSerializer
 
 
-class SelectionListlView(RetrieveAPIView):
+class SelectionRetrieveView(RetrieveAPIView):
     queryset = Selection.objects.all()
     serializer_class = SelectionDetailSerializer
 
 
-class SelectionCreatelView(CreateAPIView):
+class SelectionCreateView(CreateAPIView):
     queryset = Selection.objects.all()
     serializer_class = SelectionSerializer
     permission_classes = [IsAuthenticated]
 
 
-class SelectionUpdatelView(UpdateAPIView):
+class SelectionUpdateView(UpdateAPIView):
     queryset = Selection.objects.all()
     serializer_class = SelectionSerializer
     permission_classes = [IsAuthenticated, SelectionUpdatePermission]

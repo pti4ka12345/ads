@@ -19,6 +19,10 @@ urlpatterns = [
     path('ad/<int:pk>/update/', views.AdUpdateView.as_view()),
     path('ad/<int:pk>/delete/', views.AdDeleteView.as_view()),
     path('ad/<int:pk>/upload_image/', views.AdUploadImageView.as_view()),
+    path('selection/', views.SelectionListView.as_view()),
+    path('selection/<int:pk>/', views.SelectionUpdateView.as_view()),
+    path('selection/create/', views.SelectionCreateView.as_view()),
+    path('selection/<int:pk>/update/', views.SelectionUpdateView.as_view()),
     path('user/', include("users.urls")),
 ]
 
