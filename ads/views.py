@@ -96,7 +96,7 @@ class CategoryCreatelView(CreateView):
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class CategoryUpdatelView(UpdateView):
+class CategoryUpdateView(UpdateView):
     model = Category
     fields = ["name"]
 
@@ -268,6 +268,7 @@ class AdUploadImageView(UpdateView):
             "category_id": self.object.category_id,
             "image": self.object.image.url if self.object.image else None,
         })
+
 
 class AdDeleteView(DestroyAPIView):
     queryset = Ad.objects.all()
