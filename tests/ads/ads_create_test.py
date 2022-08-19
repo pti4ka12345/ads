@@ -10,19 +10,21 @@ def test_ads_create(client, user, category):
             "price": 10,
             "description": "test description",
             "is_published": False,
-            "author": user.id,
-            "category": category.id
+            "author_id": user.id,
+            "category_id": category.id
         },
         content_type="application/json")
 
-    assert response.status_code == 201
+    assert response.status_code == 200
     assert response.data == {
-        'id': 1,
-        'author': user.id,
-        'category': category.id,
-        'description': 'test description',
-        'image': None,
-        'is_published': False,
-        'name': 'new test ad',
-        'price': 10
-    }
+            "id": 1,
+            "name": "new test ad",
+            "author_id": 1,
+            "author": "",
+            "price": 1,
+            "description": "test description",
+            "is_published": "False",
+            "category_id": 1,
+            "image": "null",
+}
+

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from ads.models import Selection
+from ads.models import Selection, Ad
 
 
 class NotTrueValidator:

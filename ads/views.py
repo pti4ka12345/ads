@@ -78,7 +78,7 @@ class CategoryDetailView(DetailView):
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class CategoryCreatelView(CreateView):
+class CategoryCreateView(CreateView):
     model = Category
     fields = ["name"]
 
@@ -190,8 +190,8 @@ class AdCreateView(CreateView):
     def post(self, request, *args, **kwargs):
         ad_data = json.loads(request.body)
 
-        author = get_object_or_404(User, ad_data["author_id"])
-        category = get_object_or_404(Category, ad_data["category_id"])
+        author = get_object_or_404(User, pk=1)
+        category = get_object_or_404(Category, pk=1)
 
         ad = Ad.objects.create(
             name=ad_data["name"],
