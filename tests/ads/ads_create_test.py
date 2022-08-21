@@ -16,15 +16,15 @@ def test_ads_create(client, user, category):
         content_type="application/json")
 
     assert response.status_code == 200
-    assert response.data == {
+    assert response.json() == {
             "id": 1,
             "name": "new test ad",
             "author_id": 1,
             "author": "",
-            "price": 1,
+            "price": 10,
             "description": "test description",
-            "is_published": "False",
+            "is_published": False,
             "category_id": 1,
-            "image": "null",
+            "image": None,
 }
 

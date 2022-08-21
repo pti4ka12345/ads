@@ -190,8 +190,8 @@ class AdCreateView(CreateView):
     def post(self, request, *args, **kwargs):
         ad_data = json.loads(request.body)
 
-        author = get_object_or_404(User, pk=1)
-        category = get_object_or_404(Category, pk=1)
+        author = get_object_or_404(User, pk=ad_data["author_id"])
+        category = get_object_or_404(Category, pk=ad_data["category_id"])
 
         ad = Ad.objects.create(
             name=ad_data["name"],
@@ -274,3 +274,4 @@ class AdDeleteView(DestroyAPIView):
     queryset = Ad.objects.all()
     serializer_class = AdSerializer
     permission_classes = [IsAuthenticated, AdUpdatePermission]
+

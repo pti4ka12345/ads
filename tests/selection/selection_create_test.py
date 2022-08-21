@@ -10,8 +10,8 @@ def test_selection_create(client, user_token, user, ad):
             "owner": user.id,
             "items": [ad.id],
         },
-        content_type="application.json",
+        content_type="application/json",
         HTTP_AUTHORIZATION=f"Bearer {user_token}")
 
     assert response.status_code == 201
-    assert response.data == {'id': 1, 'name': 'new test selection', 'owner': user.id, 'items': [ad.id]}
+    assert response.json() == {'id': 1, 'name': 'new test selection', 'owner': user.id}
